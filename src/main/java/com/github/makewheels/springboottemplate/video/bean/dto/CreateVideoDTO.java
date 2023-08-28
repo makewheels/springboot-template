@@ -1,0 +1,27 @@
+package com.github.makewheels.springboottemplate.video.bean.dto;
+
+import com.alibaba.fastjson.JSON;
+import com.github.makewheels.springboottemplate.file.bean.File;
+import com.github.makewheels.springboottemplate.user.bean.User;
+import com.github.makewheels.springboottemplate.video.bean.entity.Video;
+import lombok.Data;
+
+@Data
+public class CreateVideoDTO {
+    // 请求参数
+    private String videoType;
+    private String rawFilename;
+    private String youtubeUrl;
+    private Long size;
+    private String ttl; // Time To Live 有效期
+
+    // 后端service传递的参数
+    private User user;
+    private Video video;
+    private File rawFile;
+
+    @Override
+    public String toString() {
+        return JSON.toJSONString(this);
+    }
+}
