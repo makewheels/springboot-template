@@ -29,9 +29,8 @@ public class AlipayService {
 
     public String createOrder(String subject, String outTradeNo, BigDecimal totalAmount) {
         try {
-            return Factory.Payment.Common()
-                    .create(subject, outTradeNo, String.valueOf(totalAmount), null)
-                    .getTradeNo();
+            return Factory.Payment.Page()
+                    .pay(subject, outTradeNo, String.valueOf(totalAmount), null).getBody();
         } catch (Exception e) {
             e.printStackTrace();
         }
